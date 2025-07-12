@@ -49,21 +49,34 @@ graph TD
     J --> K[Position-specific Analysis]
 ```
 ## **Visualizations Generated**
-1. Top-10 Skills (Overall)
-<img src="https://github.com/user-attachments/assets/4244f285-4ba9-4661-af86-c94993bc30f9" alt="Top Skills Chart" width="85%">
-*Horizontal bar chart showing most frequent skills*
-3. Skills by Job Level
-<img src="https://github.com/user-attachments/assets/c84a3c59-f8d0-45bd-9154-168b3a2037ce" alt="Skills by Level" width="90%">
-*Grouped bar chart comparing skills across experience levels*
-5. Skills × Job Type Heatmap
-<img src="https://github.com/user-attachments/assets/d5d88c96-2e32-4f23-b711-91346f6b70d2" alt="Skills Heatmap" width="75%">
-*Color-coded matrix showing skill frequency by job type*
-7. Skills by Country
-<img src="https://github.com/user-attachments/assets/c5fb22a1-6d72-4165-b133-6b8b7c1d2076" alt="Skills by Country" width="90%">
-*Grouped bar chart showing top skills in different countries*
-9. Skills × Positions Matrix
-<img src="https://github.com/user-attachments/assets/f2ffc726-d624-4ede-8ebf-bc38c4dc6e40" alt="Skills vs Positions" width="95%">
-*Comprehensive heatmap showing skill relevance for specific roles*
+
+### 1. Top-10 Skills (Overall)  
+![Top Skills Chart](https://github.com/user-attachments/assets/4244f285-4ba9-4661-af86-c94993bc30f9)  
+*Horizontal bar chart showing most frequent skills*  
+
+---
+
+### 2. Skills by Job Level  
+![Skills by Level](https://github.com/user-attachments/assets/c84a3c59-f8d0-45bd-9154-168b3a2037ce)  
+*Grouped bar chart comparing skills across experience levels*  
+
+---
+
+### 3. Skills × Job Type Heatmap  
+![Skills Heatmap](https://github.com/user-attachments/assets/d5d88c96-2e32-4f23-b711-91346f6b70d2)  
+*Color-coded matrix showing skill frequency by job type*  
+
+---
+
+### 4. Skills by Country  
+![Skills by Country](https://github.com/user-attachments/assets/c5fb22a1-6d72-4165-b133-6b8b7c1d2076)  
+*Grouped bar chart showing top skills in different countries*  
+
+---
+
+### 5. Skills × Positions Matrix  
+![Skills vs Positions](https://github.com/user-attachments/assets/f2ffc726-d624-4ede-8ebf-bc38c4dc6e40)  
+*Comprehensive heatmap showing skill relevance for specific roles*  
 
 ## Installation & Usage
 ### 1. Clone repository
