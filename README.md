@@ -19,7 +19,7 @@ This Python-based data analysis project processes job market data to identify th
 * `PhraseMatcher` - Skill extraction from text  
 
 ## **Data Sources**  
-The analysis uses three primary datasets:  
+The analysis uses three primary datasets from [Kaggle](https://www.kaggle.com/datasets/asaniczka/data-science-job-postings-and-skills)
 
 1. **Job Postings** (`job_postings.csv`)  
    - Contains job metadata (position, level, type, country)  
