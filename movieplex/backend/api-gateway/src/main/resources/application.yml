@@ -1,0 +1,13 @@
+spring:
+  profiles:
+    active: local
+
+
+springdoc:
+  swagger-ui:
+    title: movieplex
+
+    description: "movieplex is an advanced platform designed to streamline the operations of a modern cinema. \n
+                      It encompasses a comprehensive set of features catering to both users and administrators. \n
+                      The system aims to enhance the movie-going experience, from ticket booking to movie recommendations, \n
+                      while providing administrators with valuable insights for efficient cinema management."

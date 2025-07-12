@@ -1,0 +1,13 @@
+spring:
+  jpa:
+    show-sql: true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/movieinfo
+    name: postgres
+    password: postgres
+
+  flyway:
+    locations: db/migration/base,db/migration/dev
+
+server:
+  port: 8082

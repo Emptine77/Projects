@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  movieplex-recommendation-system:
+    build: .
+    container_name: 'movieplex-recommendation-system'
+    environment:
+      DB_URI: bolt://neo4j:7687
+      DB_USERNAME: neo4j
+      DB_PASSWORD: password
+      SPRING_PROFILES_ACTIVE: dev
+    ports:
+      - "8090:8080"
+    depends_on:
+      neo4j:
+        condition: service_healthy
+
+  neo4j:
+    container_name: neo4j
+    image: neo4j:latest
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/password
+    healthcheck:
+      test: wget http://localhost:7474 || exit 1
+      interval: 1s
+      timeout: 10s
+      retries: 20
+      start_period: 3s
+    volumes:
+      - neo4j-data:/data
+
+volumes:
+  neo4j-data:

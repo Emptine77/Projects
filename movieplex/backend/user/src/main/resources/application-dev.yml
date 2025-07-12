@@ -1,0 +1,32 @@
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        default_schema: users
+
+  flyway:
+    schemas: users
+    locations: db/migration/base
+
+  datasource:
+    username: ${DATABASE_USER}
+    password: ${DATABASE_PASSWORD}
+    url: ${DATABASE_URL}
+
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${JWK_SET_URI}
+
+keycloak:
+  admin-username: ${KEYCLOAK_ADMIN_USERNAME}
+  admin-password: ${KEYCLOAK_ADMIN_PASSWORD}
+  admin-realm: ${KEYCLOAK_ADMIN_REALM}
+  admin-resource: ${KEYCLOAK_ADMIN_RESOURCE}
+  realm: ${KEYCLOAK_REALM}
+  resource: ${KEYCLOAK_RESOURCE}
+  auth-server-url: ${KEYCLOAK_AUTH_SERVER_URL}
+  base-url: ${KEYCLOAK_BASE_URL}

@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  movieplex-movie-module:
+    build:
+      context: .
+    container_name: 'movieplex-movie-module'
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://movieplex-db:5432/movieplex
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_PROFILES_ACTIVE: dev
+    ports:
+      - "8090:8080"
+    depends_on:
+      - movieplex-db
+
+  movieplex-db:
+    image: 'postgres:14'
+    container_name: 'movieplex-db'
+    environment:
+      - 'POSTGRES_DB=movieplex'
+      - 'POSTGRES_PASSWORD=postgres'
+      - 'POSTGRES_USER=postgres'
+    ports:
+      - '5432'
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:

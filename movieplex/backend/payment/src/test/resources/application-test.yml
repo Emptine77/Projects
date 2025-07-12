@@ -1,0 +1,10 @@
+stripe:
+  secret-key: ${STRIPE_SECRET_KEY}
+
+  public-key: ${STRIPE_PUBLIC_KEY}
+
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:14:///test_database
+    username: postgres
+    password: postgres

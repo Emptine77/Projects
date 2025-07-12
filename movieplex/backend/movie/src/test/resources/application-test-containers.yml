@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: jdbc:tc:postgresql:14:///test_database
+    username: postgres
+    password: postgres
+
+  flyway:
+    locations: db/migration/base

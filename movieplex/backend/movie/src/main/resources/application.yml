@@ -1,0 +1,11 @@
+spring:
+  profiles:
+    active: local
+  jpa:
+    hibernate:
+      ddl-auto: validate
+  flyway:
+    default-schema: movie_catalog
+
+ticket:
+  expiration-minutes: 6
