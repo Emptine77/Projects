@@ -1,11 +1,5 @@
 # **Resume Analysis Project**
-![Python Version](https://img.shields.io/badge/python-3.10-blue?style=flat-square)  
-![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)  
-![pandas](https://img.shields.io/badge/pandas-2.3.1-blue?style=flat-square&logo=pandas)  
-![spaCy](https://img.shields.io/badge/spaCy-3.8.7-orange?style=flat-square&logo=spacy)  
-![Matplotlib](https://img.shields.io/badge/Matplotlib-3.10.3-yellowgreen?style=flat-square&logo=matplotlib)  
-![Seaborn](https://img.shields.io/badge/Seaborn-0.13.2-brightgreen?style=flat-square)  
-![NumPy](https://img.shields.io/badge/NumPy-2.2.6-blueviolet?style=flat-square&logo=numpy)  
+![Python Version](https://img.shields.io/badge/python-3.10-blue?style=flat-square) ![License](https://img.shields.io/badge/license-MIT-green?style=flat-square) ![pandas](https://img.shields.io/badge/pandas-2.3.1-blue?style=flat-square&logo=pandas) ![spaCy](https://img.shields.io/badge/spaCy-3.8.7-orange?style=flat-square&logo=spacy) ![Matplotlib](https://img.shields.io/badge/Matplotlib-3.10.3-yellowgreen?style=flat-square&logo=matplotlib) ![Seaborn](https://img.shields.io/badge/Seaborn-0.13.2-brightgreen?style=flat-square) ![NumPy](https://img.shields.io/badge/NumPy-2.2.6-blueviolet?style=flat-square&logo=numpy)  
 
 ## **Description**  
 This Python-based data analysis project processes job market data to identify the most in-demand skills across different job roles, levels, and locations. The system analyzes job postings datasets using NLP techniques and generates visualizations to highlight key skill trends in the employment market.
@@ -56,15 +50,20 @@ graph TD
 ```
 ## **Visualizations Generated**
 1. Top-10 Skills (Overall)
-<img src="https://github.com/user-attachments/assets/4244f285-4ba9-4661-af86-c94993bc30f9" alt="Top Skills Chart" width="85%"> *Horizontal bar chart showing most frequent skills*
-2. Skills by Job Level
-<img src="https://github.com/user-attachments/assets/c84a3c59-f8d0-45bd-9154-168b3a2037ce" alt="Skills by Level" width="90%"> *Grouped bar chart comparing skills across experience levels*
-3. Skills × Job Type Heatmap
-<img src="https://github.com/user-attachments/assets/d5d88c96-2e32-4f23-b711-91346f6b70d2" alt="Skills Heatmap" width="75%"> *Color-coded matrix showing skill frequency by job type*
-4. Skills by Country
-<img src="https://github.com/user-attachments/assets/c5fb22a1-6d72-4165-b133-6b8b7c1d2076" alt="Skills by Country" width="90%"> *Grouped bar chart showing top skills in different countries*
-5. Skills × Positions Matrix
-<img src="https://github.com/user-attachments/assets/f2ffc726-d624-4ede-8ebf-bc38c4dc6e40" alt="Skills vs Positions" width="95%"> *Comprehensive heatmap showing skill relevance for specific roles*
+<img src="https://github.com/user-attachments/assets/4244f285-4ba9-4661-af86-c94993bc30f9" alt="Top Skills Chart" width="85%">
+*Horizontal bar chart showing most frequent skills*
+3. Skills by Job Level
+<img src="https://github.com/user-attachments/assets/c84a3c59-f8d0-45bd-9154-168b3a2037ce" alt="Skills by Level" width="90%">
+*Grouped bar chart comparing skills across experience levels*
+5. Skills × Job Type Heatmap
+<img src="https://github.com/user-attachments/assets/d5d88c96-2e32-4f23-b711-91346f6b70d2" alt="Skills Heatmap" width="75%">
+*Color-coded matrix showing skill frequency by job type*
+7. Skills by Country
+<img src="https://github.com/user-attachments/assets/c5fb22a1-6d72-4165-b133-6b8b7c1d2076" alt="Skills by Country" width="90%">
+*Grouped bar chart showing top skills in different countries*
+9. Skills × Positions Matrix
+<img src="https://github.com/user-attachments/assets/f2ffc726-d624-4ede-8ebf-bc38c4dc6e40" alt="Skills vs Positions" width="95%">
+*Comprehensive heatmap showing skill relevance for specific roles*
 
 ## Installation & Usage
 ### 1. Clone repository
