@@ -1,3 +1,8 @@
+## PROJECTS
+
+* [Resume Analysis](#Resume-Analysis-Project)
+* [Recommendation System for Online Cinema (MoviePlex project)](#Recommendation-System-for-Online-Cinema (MoviePlex project))
+
 # **Resume Analysis Project**
 ![Python Version](https://img.shields.io/badge/python-3.10-blue?style=flat-square) ![License](https://img.shields.io/badge/license-MIT-green?style=flat-square) ![pandas](https://img.shields.io/badge/pandas-2.3.1-blue?style=flat-square&logo=pandas) ![spaCy](https://img.shields.io/badge/spaCy-3.8.7-orange?style=flat-square&logo=spacy) ![Matplotlib](https://img.shields.io/badge/Matplotlib-3.10.3-yellowgreen?style=flat-square&logo=matplotlib) ![Seaborn](https://img.shields.io/badge/Seaborn-0.13.2-brightgreen?style=flat-square) ![NumPy](https://img.shields.io/badge/NumPy-2.2.6-blueviolet?style=flat-square&logo=numpy)  
 
@@ -95,11 +100,14 @@ python-dateutil==2.8.2
     - job_postings.csv
     - job_skills.csv
     - job_summary.csv
+    
+### 4. Run analysis
+`python resumeParser.py`
+## License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 # Recommendation System for Online Cinema (MoviePlex project)
 **Hybrid Recommendation System** combining collaborative filtering, content-based filtering, and general recommendations to personalize movie suggestions for users.
-
----
 
 ## Table of Contents
 
@@ -118,8 +126,6 @@ python-dateutil==2.8.2
 * [API Usage](#api-usage)
 * [License](#license)
 
----
-
 ## Problem Statement
 
 Modern streaming platforms face challenges like:
@@ -131,8 +137,6 @@ Modern streaming platforms face challenges like:
 
 This system solves these through a hybrid approach using graph database technology.
 
----
-
 ## Features
 
 * **General Recommendations**: Fallback to top-rated movies (IMDb) for new users or when data is sparse.
@@ -140,8 +144,6 @@ This system solves these through a hybrid approach using graph database technolo
 * **Content-Based Ranking**: Refinement by matching user favorite genres.
 * **Dynamic Switching**: Chooses between general or collaborative methods depending on user history.
 * **Cascading Filters**: Secondary sort by genre affinity and IMDb score.
-
----
 
 ## Mathematical Model
 
@@ -164,8 +166,6 @@ This system solves these through a hybrid approach using graph database technolo
    * Final sort:
      $M_{final} = \text{SORT}\bigl((m, \sum_{g \in G_u} A(m,g), \text{IMDb}(m))\bigr)$
 
----
-
 ## Information Model
 
 Implemented via a graph database (Neo4j) with nodes:
@@ -178,8 +178,6 @@ Relationships:
 
 * `(User)-[RATED]->(Movie)` with rating property
 * `(Movie)-[:BELONGS_TO]->(Genre)`
-
----
 
 ## Demonstration
 This section presents key visualizations from the diploma project, illustrating how the hybrid recommendation system functions in practice.
@@ -210,8 +208,6 @@ Visualization of the algorithm’s traversal through the user–movie graph, hig
 * **Containerization**: Docker
 * **API Testing**: Postman
 
----
-
 ## System Architecture
 
 ```mermaid
@@ -221,8 +217,6 @@ graph LR
   C --> D[Neo4j Database]
   D -->|Cypher Queries| E[(Movie Graph)]
 ```
-
----
 
 ## Getting Started
 
@@ -274,8 +268,6 @@ recommender:
 java -jar target/online-cinema-recommender-0.1.0.jar
 ```
 
----
-
 ## API Usage
 
 **Base URL**: `http://localhost:8080/api`
@@ -324,14 +316,7 @@ java -jar target/online-cinema-recommender-0.1.0.jar
 
 * **GET** `/movies/{userId}/recommendations` — Retrieve top 10 personalized recommendations for a user.
 * **GET** `/movies/{userId}/recommendations?count={n}` — Retrieve the top *n* recommendations for a user.
----
 
 ## License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
-
-    
-### 4. Run analysis
-`python resumeParser.py`
-## License
-This project is licensed under the MIT License - see the LICENSE file for details.
