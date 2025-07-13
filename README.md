@@ -49,9 +49,9 @@ graph TB
     E --> F[Combine Skill Sources] --> G[Analyze Overall Skills]
     
     G --> H[Compare by Job Level]
-    H --> I[Job Type Heatmap]
-    H --> J[Country Comparison]
-    H --> K[Position-specific Analysis]
+    G --> I[Job Type Heatmap]
+    G --> J[Country Comparison]
+    G --> K[Position-specific Analysis]
 
 ```
 ## **Visualizations Generated**
