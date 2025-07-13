@@ -109,6 +109,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 
 # Recommendation System for Online Cinema (MoviePlex project)
+![Java](https://img.shields.io/badge/Java-17-blue?style=flat-square&logo=java)  ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.1-green?style=flat-square&logo=spring)  ![Neo4j](https://img.shields.io/badge/Neo4j-5.13-blueviolet?style=flat-square&logo=neo4j)  ![Docker](https://img.shields.io/badge/Docker-24.0-lightblue?style=flat-square&logo=docker)  ![Maven](https://img.shields.io/badge/Maven-3.9+-orange?style=flat-square&logo=apache-maven) ![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)
 **Hybrid Recommendation System** combining collaborative filtering, content-based filtering, and general recommendations to personalize movie suggestions for users.
 
 ## Table of Contents
