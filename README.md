@@ -1,7 +1,7 @@
 ## PROJECTS
 
 * [Resume Analysis](#Resume-Analysis-Project)
-* [Recommendation System for Online Cinema (MoviePlex project)](#Recommendation-System-for-Online-Cinema-(MoviePlex-project))
+* [Recommendation System for Online Cinema (MoviePlex project)](#recommendation-system-for-online-cinema-movieplex-project)
 
 # **Resume Analysis Project**
 ![Python Version](https://img.shields.io/badge/python-3.10-blue?style=flat-square) ![License](https://img.shields.io/badge/license-MIT-green?style=flat-square) ![pandas](https://img.shields.io/badge/pandas-2.3.1-blue?style=flat-square&logo=pandas) ![spaCy](https://img.shields.io/badge/spaCy-3.8.7-orange?style=flat-square&logo=spacy) ![Matplotlib](https://img.shields.io/badge/Matplotlib-3.10.3-yellowgreen?style=flat-square&logo=matplotlib) ![Seaborn](https://img.shields.io/badge/Seaborn-0.13.2-brightgreen?style=flat-square) ![NumPy](https://img.shields.io/badge/NumPy-2.2.6-blueviolet?style=flat-square&logo=numpy)  
