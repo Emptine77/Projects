@@ -41,7 +41,7 @@ The analysis uses three primary datasets from [Kaggle](https://www.kaggle.com/da
 
 ## **Analysis Workflow**  
 ```mermaid
-graph TD
+graph LR
     A[Load Datasets] --> B[Prepare Skill Vocabulary]
     B --> C[Configure NLP Pipeline]
     C --> D[Extract Skills from Descriptions]
@@ -88,13 +88,15 @@ graph TD
 `git clone https://github.com/yourusername/resume-analysis.git`
 
 ### 2. Install dependencies
-`pip install -r requirements.txt`
+```bash
+pip install -r requirements.txt
 pandas==1.4.0
 spacy==3.4.0
 matplotlib==3.5.0
 seaborn==0.11.2
 numpy==1.22.0
 python-dateutil==2.8.2
+```
 
 ### 3. Place data files in project root:
     - job_postings.csv
