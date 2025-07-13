@@ -95,6 +95,241 @@ python-dateutil==2.8.2
     - job_postings.csv
     - job_skills.csv
     - job_summary.csv
+
+# Recommendation System for Online Cinema (MoviePlex project)
+**Hybrid Recommendation System** combining collaborative filtering, content-based filtering, and general recommendations to personalize movie suggestions for users.
+
+---
+
+## Table of Contents
+
+* [Problem Statement](#problem-statement)
+* [Features](#features)
+* [Mathematical Model](#mathematical-model)
+* [Information Model](#information-model)
+* [Demonstration](#demonstration)
+* [Technologies](#technologies)
+* [System Architecture](#system-architecture)
+* [Getting Started](#getting-started)
+  * [Prerequisites](#prerequisites)
+  * [Installation](#installation)
+  * [Configuration](#configuration)
+  * [Running the Application](#running-the-application)
+* [API Usage](#api-usage)
+* [License](#license)
+
+---
+
+## Problem Statement
+
+Modern streaming platforms face challenges like:
+
+* **Cold start** (new users/items)
+* **Data sparsity**
+* **Content diversity**
+* **Scalability**
+
+This system solves these through a hybrid approach using graph database technology.
+
+---
+
+## Features
+
+* **General Recommendations**: Fallback to top-rated movies (IMDb) for new users or when data is sparse.
+* **Collaborative Filtering**: Personalized recommendations based on similar users.
+* **Content-Based Ranking**: Refinement by matching user favorite genres.
+* **Dynamic Switching**: Chooses between general or collaborative methods depending on user history.
+* **Cascading Filters**: Secondary sort by genre affinity and IMDb score.
+
+---
+
+## Mathematical Model
+
+1. **User Profile Analysis**:
+   $W_u = \{ m \in M \mid R(u, m) \neq \varnothing \}$
+   If $|W_u| < N$ → use general recommendations:
+   $M_{final} = \text{SORT}(\{ m \in M \mid \text{IMDb}(m) \ge R_{min} \}, \text{IMDb}(m) \downarrow)$
+
+2. **Collaborative Filtering** (if $|W_u| \ge N$):
+
+   * Similar users:
+     $U_{sim} = \{ u' \in U \setminus \{u\} \mid W_u \cap W_{u'} \neq \varnothing \}$
+   * Recommendations:
+     $M_{rec} = \bigcup_{u' \in U_{sim}} \{ m \notin W_u \mid R(u',m) \ge R_{min} \}$
+
+3. **Content-Based Ranking**:
+
+   * Top genres:
+     $G_u = \text{Top5}(g, \sum_{m \in W_u} A(m,g))$
+   * Final sort:
+     $M_{final} = \text{SORT}\bigl((m, \sum_{g \in G_u} A(m,g), \text{IMDb}(m))\bigr)$
+
+---
+
+## Information Model
+
+Implemented via a graph database (Neo4j) with nodes:
+
+* **User**
+* **Movie**
+* **Genre**
+
+Relationships:
+
+* `(User)-[RATED]->(Movie)` with rating property
+* `(Movie)-[:BELONGS_TO]->(Genre)`
+
+---
+
+## Demonstration
+This section presents key visualizations from the diploma project, illustrating how the hybrid recommendation system functions in practice.
+
+### Scenario Modeling for the Collaborative Algorithm
+<img width="892" height="494" alt="image" src="https://github.com/user-attachments/assets/f8399c71-ebb2-4d45-ab9d-16285156ba52" />
+*A graph snapshot showing user–movie interactions and how similar users are identified based on common ratings.*
+
+---
+
+### Predicted Traversal Result
+<img width="956" height="521" alt="image" src="https://github.com/user-attachments/assets/20a1cd47-55c9-45e5-8b0b-615c8899efec" />
+Visualization of the algorithm’s traversal through the user–movie graph, highlighting the movies recommended based on neighboring users’ ratings.
+
+---
+
+### Movie–Genre Graph Model
+<img width="903" height="365" alt="image" src="https://github.com/user-attachments/assets/96110f88-2285-446a-8cd6-bd3d8f968273" />
+*Structure of the Neo4j graph database with Movie and Genre nodes and their relationships, demonstrating how content-based filtering leverages genre affinity.*
+
+---
+
+## Technologies
+
+* **Backend**: Java 17, Spring Boot
+* **Database**: Neo4j (Graph Database)
+* **Query Language**: Cypher
+* **Containerization**: Docker
+* **API Testing**: Postman
+
+---
+
+## System Architecture
+
+```mermaid
+graph LR
+  A[Client] --> B(API Controller)
+  B --> C[Service Layer]
+  C --> D[Neo4j Database]
+  D -->|Cypher Queries| E[(Movie Graph)]
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+* Java 17
+* Docker & Docker Compose
+* Neo4j Community Edition or Enterprise
+* Maven 3.6+
+
+### Installation
+
+1. Clone the repo:
+
+   ```bash
+   git clone https://github.com/yourusername/online-cinema-recommender.git
+   cd online-cinema-recommender
+   ```
+
+2. Build the project with Maven:
+
+   ```bash
+   mvn clean package
+   ```
+
+3. Start Neo4j and the application:
+
+   ```bash
+   docker-compose up -d
+   ```
+
+### Configuration
+
+Edit `application.yml` or set environment variables:
+
+```yaml
+neo4j:
+  uri: bolt://localhost:7687
+  user: neo4j
+  password: password
+recommender:
+  minRatedThreshold: 5
+  imdbMinRating: 7.0
+```
+
+### Running the Application
+
+```bash
+java -jar target/online-cinema-recommender-0.1.0.jar
+```
+
+---
+
+## API Usage
+
+**Base URL**: `http://localhost:8080/api`
+
+### Users
+
+* **GET** `/users` — Retrieve all users.
+* **GET** `/users/{userId}` — Retrieve a specific user by ID.
+* **POST** `/users` — Create a new user:
+
+  ```json
+  {
+    "name": "username",
+    "email": "user@example.com"
+  }
+  ```
+* **DELETE** `/users/{userId}` — Delete a user by ID.
+
+### Movies
+
+* **GET** `/movies` — List all movies.
+* **GET** `/movies/{movieId}` — Get details of a specific movie.
+* **POST** `/movies` — Add a new movie:
+
+  ```json
+  {
+    "title": "Movie Title",
+    "genres": ["Action", "Drama"],
+    "releaseYear": 2021
+  }
+  ```
+* **DELETE** `/movies/{movieId}` — Remove a movie by ID.
+
+### Ratings
+
+* **POST** `/users/{userId}/rate` — Submit a rating for a movie:
+
+  ```json
+  {
+    "movieId": "<UUID>",
+    "rating": 8.5
+  }
+  ```
+
+### Recommendations
+
+* **GET** `/movies/{userId}/recommendations` — Retrieve top 10 personalized recommendations for a user.
+* **GET** `/movies/{userId}/recommendations?count={n}` — Retrieve the top *n* recommendations for a user.
+---
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
     
 ### 4. Run analysis
 `python resumeParser.py`
