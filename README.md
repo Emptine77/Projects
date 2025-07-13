@@ -106,6 +106,8 @@ python-dateutil==2.8.2
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+
+
 # Recommendation System for Online Cinema (MoviePlex project)
 **Hybrid Recommendation System** combining collaborative filtering, content-based filtering, and general recommendations to personalize movie suggestions for users.
 
