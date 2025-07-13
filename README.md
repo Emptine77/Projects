@@ -41,17 +41,27 @@ The analysis uses three primary datasets from [Kaggle](https://www.kaggle.com/da
 
 ## **Analysis Workflow**  
 ```mermaid
-graph LR
+graph TD
     A[Load Datasets] --> B[Prepare Skill Vocabulary]
     B --> C[Configure NLP Pipeline]
     C --> D[Extract Skills from Descriptions]
     D --> E[Parse Structured Skills]
     E --> F[Combine Skill Sources]
     F --> G[Analyze Overall Skills]
+    
+    %% Переход вниз
     G --> H[Compare by Job Level]
+    
+    %% Имитируем второй ряд справа налево
     H --> I[Job Type Heatmap]
     I --> J[Country Comparison]
     J --> K[Position-specific Analysis]
+
+    %% Скрытые узлы и стили (для выравнивания)
+    style H fill:#fff,stroke:#000,stroke-width:1px
+    style I fill:#fff,stroke:#000,stroke-width:1px
+    style J fill:#fff,stroke:#000,stroke-width:1px
+    style K fill:#fff,stroke:#000,stroke-width:1px
 ```
 ## **Visualizations Generated**
 
