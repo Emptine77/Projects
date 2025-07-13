@@ -41,7 +41,7 @@ The analysis uses three primary datasets from [Kaggle](https://www.kaggle.com/da
 
 ## **Analysis Workflow**  
 ```mermaid
-graph TD
+graph LR
     A[Load Datasets] --> B[Prepare Skill Vocabulary]
     B --> C[Configure NLP Pipeline]
     C --> D[Extract Skills from Descriptions]
