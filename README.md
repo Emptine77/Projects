@@ -5,8 +5,7 @@ Welcome to my portfolio repository! Here you will find a collection of end-to-en
 * [Resume Analysis](#Resume-Analysis-Project)
 * [Recommendation System for Online Cinema (MoviePlex project)](#recommendation-system-for-online-cinema-movieplex-project)
 
-**Transformer Studio & Multi-Label Text Classifier**
-
+# Transformer Studio & Multi-Label Text Classifier
 ![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white) ![HuggingFace](https://img.shields.io/badge/HuggingFace-FFD21E?style=flat-square&logo=huggingface&logoColor=black) ![Tkinter](https://img.shields.io/badge/GUI-Tkinter-blue?style=flat-square) ![Python](https://img.shields.io/badge/Python-3.10-3776AB?style=flat-square&logo=python&logoColor=white) ![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)
 
 ## **Description**
