@@ -1,7 +1,122 @@
-## PROJECTS
+## Applied Machine Learning & Data Engineering Portfolio
+Welcome to my portfolio repository! Here you will find a collection of end-to-end projects demonstrating my expertise in Machine Learning, Natural Language Processing (NLP), Data Analysis, and Backend Engineering.
 
+* [Transformer Studio & Multi-Label Text Classifier](#transformer-studio--multi-label-text-classifier)
 * [Resume Analysis](#Resume-Analysis-Project)
 * [Recommendation System for Online Cinema (MoviePlex project)](#recommendation-system-for-online-cinema-movieplex-project)
+
+**Transformer Studio & Multi-Label Text Classifier**
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square&logo=pytorch&logoColor=white) ![HuggingFace](https://img.shields.io/badge/HuggingFace-FFD21E?style=flat-square&logo=huggingface&logoColor=black) ![Tkinter](https://img.shields.io/badge/GUI-Tkinter-blue?style=flat-square) ![Python](https://img.shields.io/badge/Python-3.10-3776AB?style=flat-square&logo=python&logoColor=white) ![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)
+
+## **Description**
+A desktop application featuring a fully-fledged graphical user interface (GUI) designed for training, evaluating, and running inference on multi-label text classification models. The project allows users to either build and train a custom Pre-LayerNorm Transformer architecture from scratch or fine-tune state-of-the-art pre-trained models from HuggingFace without writing a single line of code.
+
+## **Key Features**
+- End-to-End GUI Pipeline: Manage datasets, configure hyperparameters, track training metrics in real-time, and run inference directly through a Tkinter interface.
+- VRAM Optimization: Implements advanced memory-saving techniques for local hardware, including Gradient Checkpointing, Layer Freezing, Automatic Mixed Precision (AMP), and Dynamic Padding.
+- Smart Evaluation: Features dynamic Micro F1 threshold search to automatically find the optimal confidence threshold for multi-label predictions.
+- Robust Checkpointing: Step-based model saving allows for safe interruptions and resuming of training processes.
+- Dual Architecture Mode: Seamlessly switch between a custom 'From Scratch' Transformer (with configurable layers, heads, and dimensions) and HuggingFace pre-trained weights.
+
+## **Technologies Used**
+* `PyTorch` - Core deep learning framework
+* `Transformers (HuggingFace)` - Pre-trained models and tokenizers (AutoModel, AutoTokenizer)
+* `Tkinter` - Application GUI and thread management
+* `Scikit-learn` - Model evaluation metrics
+* `Pandas` - Data loading and text preprocessing
+
+## **System Architecture Workflow**
+Bert-Based/
+├── launcher.py                  # Tkinter GUI application & thread manager
+├── main.py                 # Core CLI entry point for the training pipeline
+├── train.py                # Training/Validation loops and threshold optimization
+├── dataset.py              # PyTorch Dataset and Dynamic Padding Collator
+├── data_utils.py           # Data cleaning, tag parsing, and JSON mapping
+├── model_pretrained.py     # HuggingFace AutoModel integration with VRAM controls
+├── model_scratch.py        # Custom Pre-LN Transformer architecture
+├── config.py               # Auto-generated configuration file
+└── requirements.txt        # Project dependencies
+
+```mermaid
+graph LR
+    A[Raw CSV Data] --> B[Data Cleaning & Tag Filtering]
+    B --> C[Dynamic Padding Collator]
+    C --> D{Architecture Choice}
+    D -->|From Scratch| E[Custom Pre-LN Transformer]
+    D -->|Pre-trained| F[HuggingFace AutoModel]
+    E --> G[BCEWithLogitsLoss + Pos Weight]
+    F --> G
+    G --> H[AMP & Gradient Checkpointing]
+    H --> I[Dynamic Threshold F1 Optimization]
+```
+## Application Gallery
+
+![Model Arhitecture]<img width="910" height="729" alt="image" src="https://github.com/user-attachments/assets/99aeade8-dcf6-45f8-a582-6be75fc27662" />
+*Model Arhitecture window*
+
+![Inference]<img width="863" height="533" alt="image" src="https://github.com/user-attachments/assets/8b46674c-4f16-441c-8ef1-da9c22292d83" />)  
+*Model inference window*  
+
+![Result]<img width="924" height="739" alt="image" src="https://github.com/user-attachments/assets/c57ecf96-22bb-465f-a089-0e67d4060b17" />)
+*Result Multilabel text classification*  
+
+---
+
+## Installation
+
+1. **Clone the repository:**
+```bash
+git clone [https://github.com/yourusername/transformer-studio.git](https://github.com/yourusername/transformer-studio.git)
+cd transformer-studio
+```
+2. **Create a virtual environment (recommended):**
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows use: venv\Scripts\activate
+```
+3. **Install dependencies:**
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+**Option A: Using the GUI (Recommended)**
+1. Launch the interactive studio to configure and run everything visually:
+```bash
+python launcher.py
+```
+2. Go to the Data & Files tab to select your CSV dataset and define column mappings.
+
+3. Navigate to Architecture to choose between HuggingFace or Custom Transformer. Enable VRAM optimizations if you have < 8GB GPU memory.
+
+4. In the Training tab, adjust hyperparameters, click Start Training, and watch the metrics update in real-time.
+
+5. Once trained, use the Inference tab to test the model on new documents.
+   
+**Option B: Using the CLI**
+If you prefer running the pipeline on a remote server or headless environment, the underlying main.py is fully decoupled from the GUI.
+1. Ensure config.py is properly configured.
+
+2. Run training:
+```bash
+python main.py
+```
+You can dynamically override the most critical training parameters directly from the command line without editing the config.py file:
+
+--scratch : (Flag) Forces the pipeline to build and train the custom Pre-LayerNorm Transformer from scratch, ignoring any pre-trained weights.
+--model_name : (String) Specifies the HuggingFace model ID to be used for tokenization and/or pre-trained weights (e.g., distilbert-base-multilingual-cased).
+--batch_size : (Integer) Overrides the number of samples per training and validation batch.
+--epochs : (Integer) Overrides the total number of training epochs.
+--lr : (Float) Sets a new learning rate for the AdamW optimizer (e.g., 5e-5 or 0.0001).
+
+Example of a custom CLI run:
+```Bash
+python main.py --scratch --batch_size 32 --epochs 20 --lr 0.0001
+```
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
 # **Resume Analysis Project**
 ![Python Version](https://img.shields.io/badge/python-3.10-blue?style=flat-square) ![License](https://img.shields.io/badge/license-MIT-green?style=flat-square) ![pandas](https://img.shields.io/badge/pandas-2.3.1-blue?style=flat-square&logo=pandas) ![spaCy](https://img.shields.io/badge/spaCy-3.8.7-orange?style=flat-square&logo=spacy) ![Matplotlib](https://img.shields.io/badge/Matplotlib-3.10.3-yellowgreen?style=flat-square&logo=matplotlib) ![Seaborn](https://img.shields.io/badge/Seaborn-0.13.2-brightgreen?style=flat-square) ![NumPy](https://img.shields.io/badge/NumPy-2.2.6-blueviolet?style=flat-square&logo=numpy)  
