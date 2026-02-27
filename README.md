@@ -51,13 +51,13 @@ graph LR
 ```
 ## Application Gallery
 
-![Model Arhitecture]<img width="910" height="729" alt="image" src="https://github.com/user-attachments/assets/99aeade8-dcf6-45f8-a582-6be75fc27662" />
+![Model Arhitecture](https://github.com/user-attachments/assets/99aeade8-dcf6-45f8-a582-6be75fc27662)
 *Model Arhitecture window*
 
-![Inference]<img width="863" height="533" alt="image" src="https://github.com/user-attachments/assets/8b46674c-4f16-441c-8ef1-da9c22292d83" />)  
+![Inference](https://github.com/user-attachments/assets/8b46674c-4f16-441c-8ef1-da9c22292d83)  
 *Model inference window*  
 
-![Result]<img width="924" height="739" alt="image" src="https://github.com/user-attachments/assets/c57ecf96-22bb-465f-a089-0e67d4060b17" />)
+![Result](https://github.com/user-attachments/assets/c57ecf96-22bb-465f-a089-0e67d4060b17)
 *Result Multilabel text classification*  
 
 ---
