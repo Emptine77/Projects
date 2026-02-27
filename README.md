@@ -26,8 +26,9 @@ A desktop application featuring a fully-fledged graphical user interface (GUI) d
 * `Pandas` - Data loading and text preprocessing
 
 ## **System Architecture Workflow**
+```text
 Bert-Based/
-├── launcher.py                  # Tkinter GUI application & thread manager
+├── launcher.py             # Tkinter GUI application & thread manager
 ├── main.py                 # Core CLI entry point for the training pipeline
 ├── train.py                # Training/Validation loops and threshold optimization
 ├── dataset.py              # PyTorch Dataset and Dynamic Padding Collator
@@ -36,6 +37,7 @@ Bert-Based/
 ├── model_scratch.py        # Custom Pre-LN Transformer architecture
 ├── config.py               # Auto-generated configuration file
 └── requirements.txt        # Project dependencies
+```
 
 ```mermaid
 graph LR
@@ -101,13 +103,13 @@ If you prefer running the pipeline on a remote server or headless environment, t
 ```bash
 python main.py
 ```
-You can dynamically override the most critical training parameters directly from the command line without editing the config.py file:
+You can dynamically override the most critical training parameters directly from the command line without editing the `config.py` file:
 
---scratch : (Flag) Forces the pipeline to build and train the custom Pre-LayerNorm Transformer from scratch, ignoring any pre-trained weights.
---model_name : (String) Specifies the HuggingFace model ID to be used for tokenization and/or pre-trained weights (e.g., distilbert-base-multilingual-cased).
---batch_size : (Integer) Overrides the number of samples per training and validation batch.
---epochs : (Integer) Overrides the total number of training epochs.
---lr : (Float) Sets a new learning rate for the AdamW optimizer (e.g., 5e-5 or 0.0001).
+* `--scratch` : *(Flag)* Forces the pipeline to build and train the custom Pre-LayerNorm Transformer from scratch, ignoring any pre-trained weights.
+* `--model_name` : *(String)* Specifies the HuggingFace model ID to be used for tokenization and/or pre-trained weights (e.g., `distilbert-base-multilingual-cased`).
+* `--batch_size` : *(Integer)* Overrides the number of samples per training and validation batch.
+* `--epochs` : *(Integer)* Overrides the total number of training epochs.
+* `--lr` : *(Float)* Sets a new learning rate for the AdamW optimizer (e.g., `5e-5` or `0.0001`).
 
 Example of a custom CLI run:
 ```Bash
